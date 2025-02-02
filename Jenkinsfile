@@ -1,5 +1,5 @@
 pipeline {
-    agent any  // This means that the pipeline can run on any available agent
+    agent any  // Use any available agent globally
     stages {
         stage ('build') {
             agent {
