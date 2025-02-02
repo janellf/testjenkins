@@ -2,11 +2,9 @@ pipeline {
     agent any  // Use any available agent globally
     stages {
         stage ('build') {
-            agent {
-                docker {
+            steps {
                     image 'jenkins/inbound-agent:latest'
                     args '-u root'
-                }
             }
             steps {
                 echo 'Building the project in a Docker container'
