@@ -1,14 +1,15 @@
 pipeline {
-    agent {
-        docker {
-            image 'jenkins/inbound-agent:latest' 
-            args '-u root'
-        }
-    }
+    agent any  // This means that the pipeline can run on any available agent
     stages {
         stage ('build') {
+            agent {
+                docker {
+                    image 'jenkins/inbound-agent:latest'
+                    args '-u root'
+                }
+            }
             steps {
-                echo 'yeah buddy'
+                echo 'Building the project in a Docker container'
             }
         }
         stage ('test') {
@@ -16,26 +17,28 @@ pipeline {
                 script {
                     def exitCode = sh(script: 'exit 1', returnStatus: true)
                     if (exitCode != 0) {
-                        echo "Test failed with exit code: ${exitCode}"
+                        error "Test failed! Aborting pipeline."
                     }
                 }
             }
         }
         stage ('deploy') {
             steps {
-                echo 'GOD got me'
+                script {
+                    error "Forcing failure in deploy stage to test logs!"
+                }
             }
         }
     }
     post {
         always {
-            echo 'pipeline complete'
+            echo 'Pipeline complete'
         }
         failure {
-            echo 'one or more builds have failed'
+            echo 'One or more builds have failed'
         }
         success {
-            echo 'pipeline was a success'
+            echo 'Pipeline was a success'
         }
     }
 }
