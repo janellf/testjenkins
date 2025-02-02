@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'jenkins/inbound-agent:latest' 
+            args '-u root'
+        }
+    }
     stages {
         stage ('build') {
             steps {
