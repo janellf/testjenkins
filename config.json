@@ -2,7 +2,7 @@
   "AWSBatchImages": [
     {
       "Name": "my-app",
-      "Image": "123456789012.dkr.ecr.us-east-1.amazonaws.com/my-app:test"
+      "Image": "767113614628.dkr.ecr.us-east-1.amazonaws.com/my-app"
     }
   ],
   "AWSECSLinuxServices": [
