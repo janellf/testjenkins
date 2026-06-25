@@ -26,11 +26,8 @@ pipeline {
         unstable {
             emailext(
                 to: 'sarajayjoyner@gmail.com',
-                subject: 'Build Unstable',
-                body: 'The build is unstable.'
-                    Job: ${env.JOB_NAME}
-                    Build Number: ${env.BUILD_NUMBER}
-                    Build URL: ${env.BUILD_URL}
+                subject: "Build Unstable - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: 'The build is unstable.\nJob: ${env.JOB_NAME}\nBuild Number: ${env.BUILD_NUMBER}\nBuild URL: ${env.BUILD_URL}'
             )
         }
     }
