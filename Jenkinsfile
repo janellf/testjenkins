@@ -17,6 +17,7 @@ pipeline {
                     -X POST \
                     "https://httpbin.org/post?encounterId=${params.encounterId}&dryRun=${params.dryRun}"
                 """
+                unstable(message: 'Forcing unstable for test')
             }
         }
     }
