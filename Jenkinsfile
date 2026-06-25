@@ -26,9 +26,9 @@ pipeline {
         unstable {
             emailext(
                 to: 'sarajayjoyner@gmail.com',
-                subject: 'Jenkins Build ${currentBuild.fullDisplayName} - Unstable',
-                body: '''<p>Build ${currentBuild.fullDisplayName} is unstable.</p>
-                         <p>Check console output at "${env.Build_URL} to view the results.</p>''',
+                subject: "Jenkins Build ${currentBuild.fullDisplayName} - Unstable",
+                body: """<p>Build ${currentBuild.fullDisplayName} is unstable.</p>
+                         <p>Check console output at "${env.Build_URL} to view the results.</p>""",
             )
         }
     }
