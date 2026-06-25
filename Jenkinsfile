@@ -28,6 +28,9 @@ pipeline {
                 to: 'sarajayjoyner@gmail.com',
                 subject: 'Build Unstable',
                 body: 'The build is unstable.'
+                    Job: ${env.JOB_NAME}
+                    Build Number: ${env.BUILD_NUMBER}
+                    Build URL: ${env.BUILD_URL}
             )
         }
     }
