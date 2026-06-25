@@ -3,8 +3,8 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'encounterId', defaultValue: 'ENC-TEST-001', description: 'Encounter ID to archive')
-        booleanParam(name: 'dryRun', defaultValue: true, description: 'If true, simulates without making changes')
+        string(name: 'encounterId', defaultValue: '', description: '')
+        booleanParam(name: 'dryRun', defaultValue: true, description: '')
     }
 
     stages {
